@@ -10,7 +10,7 @@ const images = [
   { src: '/img/021.jpg', etiqueta: 'Vistas Únicas' },
 ];
 
-const radius = 200;
+const radius = Math.min(window.innerWidth, 400) / 2;
 
 export const Principal = () => {
   const [rotation, setRotation] = useState(0);
@@ -82,9 +82,20 @@ export const Principal = () => {
         </div>
       </div>
 
-      {/* Imagen tipo footer */}
+      {/* Imagen tipo footer que rota */}
       <div className="footer-contenedor">
-        <div className="footer-overlay"></div>
+        <div className="llanta-wrapper">
+          <img
+            src="/img/Llanta.png"
+            alt="Llanta girando"
+            className="llanta-imagen"
+            style={{
+              transform: `rotate(${-rotation}deg)`,
+              transition: 'transform 0.1s linear',
+            }}
+            draggable={false}
+          />
+        </div>
       </div>
     </div>
   );

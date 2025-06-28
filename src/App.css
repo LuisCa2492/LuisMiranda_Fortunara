@@ -32,6 +32,7 @@ html, body {
   height: 100%;
   position: relative;
   border-radius: 50%;
+  margin-top: 6vw;
 }
 
 .carrusel-item {
@@ -72,16 +73,32 @@ html, body {
 .footer-contenedor {
   position: fixed;
   bottom: 0;
-  right: 20vw;
-  width: 60vw;
-  height: 50vh;
-  background-image: url('/img/Llanta.png');
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30vw; /* ajusta según diseño */
+  height: 15vw; /* solo muestra la mitad vertical */
+  overflow: hidden; /* 🔥 esto recorta la mitad inferior */
   z-index: 1;
   pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
+
+.llanta-wrapper {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.llanta-imagen {
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
 
 .footer-overlay {
   width: 100%;
@@ -96,10 +113,15 @@ html, body {
     height: 22vw;
   }
   .footer-contenedor {
-    height: 25vh;
+    height: 40vh;
+     width: 100%;
+  }
+  .llanta-wrapper {
+    width: 100%;
   }
 
   .carrusel-item {
     max-width: 35vw;
+    margin-top: 6vw;
   }
 }
