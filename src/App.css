@@ -1,4 +1,89 @@
 html, body {
-  background-color: black;
-  color: aliceblue;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden; /* 💥 Esto bloquea el scroll vertical */
 }
+.contenedor-principal {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.carrusel {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px; /* radius * 2 */
+  height: 400px;
+  z-index: 2;
+  user-select: none;
+  touch-action: none;
+}
+
+.carrusel-circulo {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 50%;
+}
+
+.carrusel-item {
+  position: absolute;
+  text-align: center;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, opacity 0.2s;
+  max-width: 120px;
+}
+
+.imagen-circular {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  user-select: none;
+}
+
+.etiqueta {
+  margin-top: 6px;
+  background-color: #ffffffcc;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: black;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.footer-contenedor {
+  position: fixed;
+  bottom: 0;
+  right: 20vw;
+  width: 60vw;
+  height: 50vh;
+  background-image: url('/img/Llanta.png'); /* Cambia esto por la ruta real */
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.footer-overlay {
+  width: 100%;
+  height:100%;
+  background: rgba(235, 223, 223, 0); /* opcional para oscurecer */
+}
+
+.carrusel-item,
+.etiqueta,
+.imagen-circular {
+  user-select: none;
+}
+

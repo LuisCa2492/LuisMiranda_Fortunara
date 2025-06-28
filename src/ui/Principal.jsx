@@ -1,14 +1,16 @@
-import React, { useState,useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import '../App.css'; // Asegúrate de tener este CSS
 
 const images = [
-  'src/assets/img/021.jpg',
-  'src/assets/img/021.jpg',
-  'src/assets/img/021.jpg',
-  'src/assets/img/021.jpg',
-  'src/assets/img/021.jpg',
+  { src: '/img/021.jpg', etiqueta: 'Experiencia exclusiva' },
+  { src: '/img/021.jpg', etiqueta: 'Grupos Reducidos' },
+  { src: '/img/021.jpg', etiqueta: 'Prioridad Seguridad' },
+  { src: '/img/021.jpg', etiqueta: 'Bosque Privado' },
+  { src: '/img/021.jpg', etiqueta: 'Piscina Termal' },
+  { src: '/img/021.jpg', etiqueta: 'Vistas Únicas' },
 ];
-const radius = 200; 
+
+const radius = 200;
 
 export const Principal = () => {
   const [rotation, setRotation] = useState(0);
@@ -26,66 +28,64 @@ export const Principal = () => {
 
   const onPointerMove = (e) => {
     if (!dragging.current) return;
-
     const deltaX = e.clientX - lastX.current;
     lastX.current = e.clientX;
     setRotation((prev) => prev + deltaX * 0.5);
   };
 
   return (
-    <div
-      style={{
-        width: '100vw',
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        overflow: 'hidden',
-        position: 'relative',
-        userSelect: 'none',
-        touchAction: 'none',
-        cursor: dragging.current ? 'grabbing' : 'grab',
-      }}
-      onPointerDown={onPointerDown}
-      onPointerUp={onPointerUp}
-      onPointerLeave={onPointerUp}
-      onPointerMove={onPointerMove}
-    >
+    <div className="contenedor-principal">
+      {/* Carrusel centrado */}
       <div
+        className="carrusel"
+        onPointerDown={onPointerDown}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
+        onPointerMove={onPointerMove}
         style={{
-          width: 300,
-          height: 300,
-          position: 'relative',
-          borderRadius: '50%',
+          cursor: dragging.current ? 'grabbing' : 'grab',
         }}
       >
-        {images.map((src, index) => {
-          const angle = ((360 / images.length) * index + rotation) * (Math.PI / 180);
-          const x = radius * Math.cos(angle);
-          const y = radius * Math.sin(angle);
+        <div className="carrusel-circulo">
+          {images.map((img, index) => {
+            const baseAngleDeg = (360 / images.length) * index + rotation;
+            const angle = (baseAngleDeg * Math.PI) / 180;
 
-          return (
-            <img
-              key={index}
-              src={src}
-              alt={`Imagen ${index}`}
-              style={{
-                width: 120,
-                height: 120,
-                borderRadius: '50%',
-                position: 'absolute',
-                top: 150 + y,
-                left: 150 + x,
-                transform: 'translate(-50%, -50%)',
-                transition: 'top 0.1s, left 0.1s',
-                userSelect: 'none',
-                pointerEvents: 'auto',
-              }}
-              draggable={false}
-            />
-          );
-        })}
+            const x = radius * Math.cos(angle);
+            const y = radius * Math.sin(angle);
+
+            const angleFromTop = Math.cos(angle - (3 * Math.PI) / 2);
+            const scale = 0.8 + angleFromTop * 0.2;
+            const opacity = 0.6 + angleFromTop * 0.4;
+
+            return (
+              <div
+                key={index}
+                className="carrusel-item"
+                style={{
+                  top: radius + y,
+                  left: radius + x,
+                  transform: `translate(-50%, -50%) scale(${scale})`,
+                  opacity,
+                }}
+              >
+                <img
+                  src={img.src}
+                  alt={img.etiqueta}
+                  className="imagen-circular"
+                  draggable={false}
+                />
+                <div className="etiqueta">{img.etiqueta}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Imagen tipo footer */}
+      <div className="footer-contenedor">
+        <div className="footer-overlay"></div>
       </div>
     </div>
-  )
-}
+  );
+};
