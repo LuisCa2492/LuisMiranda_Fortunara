@@ -1,6 +1,5 @@
 import React, { useState, useRef } from 'react';
 import '../App.css'; // Asegúrate de tener este CSS
-
 const images = [
   { src: '/img/021.jpg', etiqueta: 'Experiencia exclusiva' },
   { src: '/img/021.jpg', etiqueta: 'Grupos Reducidos' },
@@ -34,6 +33,8 @@ export const Principal = () => {
   };
 
   return (
+    <>
+    
     <div className="contenedor-principal">
       {/* Carrusel centrado */}
       <div
@@ -98,5 +99,7 @@ export const Principal = () => {
         </div>
       </div>
     </div>
+
+    </>
   );
 };

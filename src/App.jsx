@@ -2,15 +2,14 @@ import { useState } from 'react'
 import './App.css'
 import {Principal} from './ui/Principal';
 import {NavBar} from './ui/NavBar';
-import { Other } from './ui/Other';
+import { Footer } from './ui/Footer';
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
     <NavBar/>
-    
-      <Principal/>
+    <Principal/>
+    <Footer/>
     </>
   )
 }
