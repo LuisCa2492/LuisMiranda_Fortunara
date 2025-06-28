@@ -16,11 +16,14 @@ import { useState } from 'react';
 import { Fragment } from 'react';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { SiTiktok } from 'react-icons/si';
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 const pages = ['Tour', 'Galeria de aventuras', 'Acerca de'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export const NavBar = () => {
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -56,9 +59,6 @@ export const NavBar = () => {
               
               color: 'red',
               textDecoration: 'none',
-            //   position: 'absolute',
-            //     left: '50%',
-            //     transform: 'translateX(-50%)',
                 
             }}
           >
@@ -93,15 +93,15 @@ export const NavBar = () => {
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page, index) => (
-    <Fragment key={page} >
-      <MenuItem onClick={handleCloseNavMenu} sx={{ py: 1.5 }}>
-        <Typography sx={{ textAlign: 'center' }}>{page} ||||||||</Typography>
-      </MenuItem>
-      {index < pages.length - 1 && (
-        <Divider sx={{ my: 0.5, bgcolor: 'white' }} />
-      )}
-    </Fragment>
-  ))}
+                    <Fragment key={page} >
+                    <MenuItem onClick={handleCloseNavMenu} sx={{ py: 1.5 }}>
+                        <Typography sx={{ textAlign: 'center' }}>{page} ||||||||</Typography>
+                    </MenuItem>
+                    {index < pages.length - 1 && (
+                        <Divider sx={{ my: 0.5, bgcolor: 'white' }} />
+                    )}
+                    </Fragment>
+               ))}
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
@@ -133,7 +133,6 @@ export const NavBar = () => {
                     {page}
                 </Button>
 
-                {/* Mostrar Divider solo entre botones, no después del último */}
                 {index < pages.length - 1 && (
                     <Divider
                     orientation="vertical"
@@ -145,37 +144,16 @@ export const NavBar = () => {
             ))}
             </Box>
           {/* agregar iconos */}
+         
+          <SiTiktok size={24} color="#ffffff" />
           <WhatsAppIcon sx={{m:1}}/>
           <InstagramIcon sx={{m:1}}/>
+
           <Box sx={{ flexGrow: 0 }}>
-            
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: '45px' }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'right',
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
+            <Button sx={{backgroundColor:"#a50d0d", color:'white',borderRadius: '20px'}}>
+                Reservar <ArrowCircleRightIcon sx={{ml:1}}/>
+            </Button>
+           
           </Box>
         </Toolbar>
       </Container>
