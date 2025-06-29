@@ -46,7 +46,7 @@ export const NavBar = () => {
     <AppBar position="fixed" sx={{backgroundColor:'#1b0601'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
-          <Typography
+          {/* <Typography
             variant="h6"
             noWrap
             component="a"
@@ -56,16 +56,14 @@ export const NavBar = () => {
               display: { xs: 'none', md: 'flex' },
               fontFamily: '-apple-system',
               fontWeight: 1000,
-              
               color: 'red',
               textDecoration: 'none',
-                
             }}
           >
             SUPER QUADS 
-          </Typography>
+          </Typography> */}
 
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -95,7 +93,7 @@ export const NavBar = () => {
               {pages.map((page, index) => (
                     <Fragment key={page} >
                     <MenuItem onClick={handleCloseNavMenu} sx={{ py: 1.5 }}>
-                        <Typography sx={{ textAlign: 'center' }}>{page} ||||||||</Typography>
+                        <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
                     </MenuItem>
                     {index < pages.length - 1 && (
                         <Divider sx={{ my: 0.5, bgcolor: 'white' }} />
@@ -104,26 +102,30 @@ export const NavBar = () => {
                ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant="h5"
+         
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center',marginLeft:'16vw'}}>
+            <Typography
+            variant="h6"
             noWrap
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'monospace',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
+              display: { xs: 'none', md: 'flex' },
+              fontFamily: '-apple-system',
+              fontWeight: 1000,
+              color: 'red',
               textDecoration: 'none',
+              '&:hover': {
+                color: 'red',
+                textDecoration: 'none',
+              },
+              padding:1,
+              marginRight:'2vw'
             }}
           >
-            LOGO
+            SUPER QUADS 
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center' }}>
             {pages.map((page, index) => (
                 <Fragment key={page}>
                 <Button
@@ -149,7 +151,7 @@ export const NavBar = () => {
           <WhatsAppIcon sx={{m:1}}/>
           <InstagramIcon sx={{m:1}}/>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0, marginRight: '10vw'}}>
             <Button sx={{backgroundColor:"#a50d0d", color:'white',borderRadius: '20px'}}>
                 Reservar <ArrowCircleRightIcon sx={{ml:1}}/>
             </Button>

@@ -46,6 +46,8 @@ html, body {
   transition: transform 0.2s, opacity 0.2s;
   max-width: 30vw;
   user-select: none;
+  margin-top: 8vw;
+
 }
 
 .imagen-circular {

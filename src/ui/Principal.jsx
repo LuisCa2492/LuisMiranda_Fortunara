@@ -12,13 +12,23 @@ const images = [
 
 
 
-const radius = Math.min(window.innerWidth, 400) / 2;
+// const radius = Math.min(window.innerWidth, 500) / 2;
+
+
 
 export const Principal = () => {
   const [rotation, setRotation] = useState(0);
   const [imagenActivaIndex, setImagenActivaIndex] = useState(0);
   const dragging = useRef(false);
   const lastX = useRef(0);
+
+  const radius = useMemo(() => {
+  const baseRadius = 80; // base mínima para 1 imagen
+  
+  const extra = images.length * 35; // espacio extra por imagen
+  return baseRadius + extra;
+}, [images.length]);
+
 
   useEffect(() => {
   let closestIndex = 0;
@@ -86,14 +96,14 @@ export const Principal = () => {
       >
         <div className="carrusel-circulo">
           {images.map((img, index) => {
-            
-            const baseAngleDeg = (360 / images.length) * index + rotation;
-            const angle = (baseAngleDeg * Math.PI) / 180;
+
+            const angleStep = (2 * Math.PI) / images.length; // Paso angular uniforme en radianes
+            const angle = angleStep * index + (rotation * Math.PI) / 180; // aplica la rotación
 
             const x = radius * Math.cos(angle);
             const y = radius * Math.sin(angle);
 
-            const angleFromTop = Math.cos(angle - (3 * Math.PI) / 2);
+            const angleFromTop = Math.cos(angle - (3 * Math.PI) / 2); // 270°
             const scale = 0.8 + angleFromTop * 0.2;
             const opacity = 0.6 + angleFromTop * 0.4;
 
@@ -102,8 +112,8 @@ export const Principal = () => {
                 key={index}
                 className="carrusel-item"
                 style={{
-                  top: radius + y,
-                  left: radius + x,
+                  top: `calc(50% + ${y}px)`,
+                  left: `calc(50% + ${x}px)`,
                   transform: `translate(-50%, -50%) scale(${scale})`,
                   opacity,
                 }}

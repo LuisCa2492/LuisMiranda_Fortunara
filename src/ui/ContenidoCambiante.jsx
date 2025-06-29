@@ -8,7 +8,7 @@ export const ContenidoCambiante = ({titulo}) => {
             sx={{
                 position: 'fixed',
                 top: 0,
-                right: { xs:0,sm:350},
+                right: { xs:0,sm:'6vw'},
                 marginTop:9,
                 width: { xs: '80px', sm: '120px' }, // ancho responsive
                 height: { xs: '80px', sm: '120px' }, // alto responsive
