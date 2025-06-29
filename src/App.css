@@ -4,6 +4,7 @@ html, body {
   height: 100vh;
   overflow: hidden;
   font-family: sans-serif;
+  background-color: black;
 }
 
 .contenedor-principal {
@@ -32,7 +33,7 @@ html, body {
   height: 100%;
   position: relative;
   border-radius: 50%;
-  margin-top: 6vw;
+  margin-top: 2vw;
 }
 
 .carrusel-item {
@@ -140,5 +141,8 @@ html, body {
   .carrusel-item {
     max-width: 35vw;
     margin-top: 6vw;
+  }
+  .carrusel-circulo {
+    margin-top: 8vw;
   }
 }

@@ -1,20 +1,53 @@
-import React, { useState, useRef } from 'react';
-import '../App.css'; // Asegúrate de tener este CSS
+import React, { useState, useRef, useMemo, useEffect } from 'react';
+import '../App.css'; 
+import { ContenidoCambiante } from './ContenidoCambiante';
 const images = [
   { src: '/img/021.jpg', etiqueta: 'Experiencia exclusiva' },
   { src: '/img/021.jpg', etiqueta: 'Grupos Reducidos' },
   { src: '/img/021.jpg', etiqueta: 'Prioridad Seguridad' },
   { src: '/img/021.jpg', etiqueta: 'Bosque Privado' },
   { src: '/img/021.jpg', etiqueta: 'Piscina Termal' },
-  { src: '/img/021.jpg', etiqueta: 'Vistas Únicas' },
+  { src: '/img/021.jpg', etiqueta: 'Vistas Unicas' },
 ];
+
+
 
 const radius = Math.min(window.innerWidth, 400) / 2;
 
 export const Principal = () => {
   const [rotation, setRotation] = useState(0);
+  const [imagenActivaIndex, setImagenActivaIndex] = useState(0);
   const dragging = useRef(false);
   const lastX = useRef(0);
+
+  useEffect(() => {
+  let closestIndex = 0;
+  let minDiff = Infinity;
+
+  images.forEach((img, index) => {
+    const baseAngleDeg = (360 / images.length) * index + rotation;
+
+    // Normaliza ángulo entre 0 y 360
+    const angle = ((baseAngleDeg % 360) + 360) % 360;
+
+    // Diferencia circular con respecto a 270 (arriba)
+    const diff = Math.min(
+      Math.abs(angle - 270),
+      360 - Math.abs(angle - 270)
+    );
+
+    if (diff < minDiff) {
+      minDiff = diff;
+      closestIndex = index;
+    }
+  });
+
+  setImagenActivaIndex(closestIndex);
+}, [rotation]);
+
+
+
+  const imagenSuperior = images[imagenActivaIndex];
 
   const onPointerDown = (e) => {
     dragging.current = true;
@@ -29,12 +62,16 @@ export const Principal = () => {
     if (!dragging.current) return;
     const deltaX = e.clientX - lastX.current;
     lastX.current = e.clientX;
-    setRotation((prev) => prev + deltaX * 0.5);
+    // setRotation((prev) => prev + deltaX * 0.5);
+    setRotation((prev) => {
+      const newRotation = prev + deltaX * 0.5;
+      return ((newRotation % 360) + 360) % 360; // normaliza entre 0-360
+    });
   };
 
   return (
     <>
-    
+    <ContenidoCambiante titulo={imagenSuperior.etiqueta}/>
     <div className="contenedor-principal">
       {/* Carrusel centrado */}
       <div
@@ -49,6 +86,7 @@ export const Principal = () => {
       >
         <div className="carrusel-circulo">
           {images.map((img, index) => {
+            
             const baseAngleDeg = (360 / images.length) * index + rotation;
             const angle = (baseAngleDeg * Math.PI) / 180;
 
