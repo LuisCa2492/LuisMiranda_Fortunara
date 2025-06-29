@@ -45,7 +45,13 @@ export const Footer = () => {
                 <Typography variant="body2" fontWeight="bold">
                     GALERÍA DE AVENTURAS
                 </Typography>
-                <Button sx={{backgroundColor:"#a50d0d", color:'white',borderRadius: '20px'}} >
+                <Button 
+                sx={{
+                  backgroundColor:"#a50d0d",
+                  color:'white',
+                  borderRadius: '20px',
+                  margin:1
+                  }}>
                     Ver Galería <ArrowCircleRightIcon sx={{ml:1}}/>
                 </Button>
                 </Box>
