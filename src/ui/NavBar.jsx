@@ -46,23 +46,6 @@ export const NavBar = () => {
     <AppBar position="fixed" sx={{backgroundColor:'#1b0601'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters >
-          {/* <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: '-apple-system',
-              fontWeight: 1000,
-              color: 'red',
-              textDecoration: 'none',
-            }}
-          >
-            SUPER QUADS 
-          </Typography> */}
-
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }}}>
             <IconButton
               size="large"
@@ -103,7 +86,7 @@ export const NavBar = () => {
             </Menu>
           </Box>
          
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center',marginLeft:'16vw'}}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, alignItems: 'center',marginLeft:'14vw'}}>
             <Typography
             variant="h6"
             noWrap
@@ -113,6 +96,7 @@ export const NavBar = () => {
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: '-apple-system',
+              fontSize: { md: '0.9rem', lg: '1.5rem' },
               fontWeight: 1000,
               color: 'red',
               textDecoration: 'none',
