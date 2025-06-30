@@ -18,8 +18,11 @@ export const Principal = () => {
   const lastX = useRef(0);
 
   const radius = useMemo(() => {
-  const baseRadius = 80; // base mínima para 1 imagen
-  
+  let baseRadius = 80; // base mínima para 1 imagen
+  const width = window.innerWidth;
+  if (width >= 1024 && width <= 1344) {
+    baseRadius = 180; // más grande para pantallas medianas
+  } 
   const extra = images.length * 35; // espacio extra por imagen
   return baseRadius + extra;
 }, [images.length]);
