@@ -139,20 +139,66 @@ html, body {
   .llanta-wrapper {
     width: 100%;
   } */
-   .footer-contenedor {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
-  height: 50vh; /* 🔥 Esto asegura mitad de pantalla */
-  overflow: hidden; /* 🔥 Oculta parte inferior de la imagen */
-  z-index: 1;
-  pointer-events: none;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* 🔥 Alinea parte superior de la imagen */
+  .footer-contenedor {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50vh; /* 🔥 Esto asegura mitad de pantalla */
+    overflow: hidden; /* 🔥 Oculta parte inferior de la imagen */
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 🔥 Alinea parte superior de la imagen */
+  }
+
+  .llanta-wrapper {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .llanta-imagen {
+    height: auto;
+    width: 100vw;  /* o ajusta según diseño */
+    object-fit: cover;
+    user-select: none;
+  }
+
+  .carrusel-item {
+    max-width: 35vw;
+    margin-top: 20vw;
+    transform: translate(-50%, -50%) scale(1.2) !important; 
+  }
+  .carrusel-circulo {
+    margin-top: 8vw;
+  }
 }
+
+@media (min-width: 1024px) and (max-width: 1344px) {
+  .imagen-circular {
+    width: 22vw;
+    height: 22vw;
+  }
+
+  .footer-contenedor {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 50vh; /* 🔥 Esto asegura mitad de pantalla */
+    overflow: hidden; /* 🔥 Oculta parte inferior de la imagen */
+    z-index: 1;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* 🔥 Alinea parte superior de la imagen */
+  }
 
 .llanta-wrapper {
   width: auto;
@@ -169,10 +215,12 @@ html, body {
   user-select: none;
 }
 
+
+
   .carrusel-item {
     max-width: 35vw;
-    margin-top: 20vw;
-    transform: translate(-50%, -50%) scale(1.2) !important; 
+    margin-top: 6vw;
+    transform: translate(-50%, -50%) scale(1.2) !important;
   }
   .carrusel-circulo {
     margin-top: 8vw;

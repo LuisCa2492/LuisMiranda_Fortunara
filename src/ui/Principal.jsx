@@ -9,12 +9,7 @@ const images = [
   { src: '/img/021.jpg', etiqueta: 'Piscina Termal' },
   { src: '/img/021.jpg', etiqueta: 'Vistas Unicas' },
 ];
-
-
-
 // const radius = Math.min(window.innerWidth, 500) / 2;
-
-
 
 export const Principal = () => {
   const [rotation, setRotation] = useState(0);
