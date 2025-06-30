@@ -26,7 +26,14 @@ export const ContenidoCambiante = ({titulo}) => {
       }}
     >
       <span>Recorrido dentro de nuestro bosque cambiante. {titulo}</span>
-      <span style={{ fontSize: '0.7rem', fontWeight: 400, marginTop: 4 }}>Día Superquantium</span>
+      <span style={{ fontSize: '0.7rem', 
+          fontWeight: 400, 
+          marginTop: 4,
+          fontFamily: '-apple-system',
+          fontWeight: 1000,
+          color: 'red' }}>
+            SUPER QUADS
+      </span>
     </Box>
     </>
   )
