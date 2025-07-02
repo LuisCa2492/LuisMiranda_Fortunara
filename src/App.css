@@ -132,13 +132,7 @@ html, body {
     width: 22vw;
     height: 22vw;
   }
-  /* .footer-contenedor {
-    height: 40vh;
-     width: 100%;
-  }
-  .llanta-wrapper {
-    width: 100%;
-  } */
+
   .footer-contenedor {
     position: fixed;
     bottom: 0;
@@ -173,6 +167,7 @@ html, body {
     max-width: 35vw;
     margin-top: 20vw;
     transform: translate(-50%, -50%) scale(1.2) !important; 
+    /* margin-top: 70vw; */
   }
   .carrusel-circulo {
     margin-top: 8vw;
@@ -200,27 +195,26 @@ html, body {
     align-items: flex-start; /* 🔥 Alinea parte superior de la imagen */
   }
 
-.llanta-wrapper {
-  width: auto;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-}
+  .llanta-wrapper {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
 
-.llanta-imagen {
-  height: auto;
-  width: 100vw;  /* o ajusta según diseño */
-  object-fit: cover;
-  user-select: none;
-}
-
-
+  .llanta-imagen {
+    height: auto;
+    width: 100%;  /* o ajusta según diseño */
+    object-fit: cover;
+    user-select: none;
+  }
 
   .carrusel-item {
     max-width: 35vw;
     margin-top: 6vw;
-    transform: translate(-50%, -50%) scale(1.2) !important;
+    transform: translate(-50%, -50%) scale(1.6) !important;
+    margin-top: 15vw;
   }
   .carrusel-circulo {
     margin-top: 8vw;
