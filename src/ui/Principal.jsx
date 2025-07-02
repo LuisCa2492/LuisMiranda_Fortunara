@@ -17,15 +17,28 @@ export const Principal = () => {
   const dragging = useRef(false);
   const lastX = useRef(0);
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Escucha cambios de tamaño de ventana
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    
+    // Limpieza
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+
   const radius = useMemo(() => {
   let baseRadius = 80; // base mínima para 1 imagen
   const width = window.innerWidth;
   if (width >= 1024 && width <= 1344) {
     baseRadius = 400; // más grande para pantallas medianas
+    console.log('mediana');
   } 
   const extra = images.length * 35; // espacio extra por imagen
   return baseRadius + extra;
-}, [images.length]);
+}, [windowWidth, images.length]);
 
 
   useEffect(() => {
