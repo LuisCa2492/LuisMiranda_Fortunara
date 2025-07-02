@@ -9,7 +9,6 @@ const images = [
   { src: '/img/021.jpg', etiqueta: 'Piscina Termal' },
   { src: '/img/021.jpg', etiqueta: 'Vistas Unicas' },
 ];
-// const radius = Math.min(window.innerWidth, 500) / 2;
 
 export const Principal = () => {
   const [rotation, setRotation] = useState(0);
@@ -19,54 +18,46 @@ export const Principal = () => {
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
-  // Escucha cambios de tamaño de ventana
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
-    
-    // Limpieza
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
 
   const radius = useMemo(() => {
-  let baseRadius = 80; // base mínima para 1 imagen
-  const width = window.innerWidth;
-  if (width >= 1024 && width <= 1344) {
-    baseRadius = 400; // más grande para pantallas medianas
-    console.log('mediana');
-  } 
-  const extra = images.length * 35; // espacio extra por imagen
-  return baseRadius + extra;
-}, [windowWidth, images.length]);
+    let baseRadius = 80; 
+    const width = window.innerWidth;
+    if (width >= 1024 && width <= 1344) {
+      baseRadius = 400; 
+    } 
+    const extra = images.length * 35;
+    return baseRadius + extra;
+  }, [windowWidth, images.length]);
 
 
   useEffect(() => {
-  let closestIndex = 0;
-  let minDiff = Infinity;
+    let closestIndex = 0;
+    let minDiff = Infinity;
 
-  images.forEach((img, index) => {
-    const baseAngleDeg = (360 / images.length) * index + rotation;
+    images.forEach((img, index) => {
+      const baseAngleDeg = (360 / images.length) * index + rotation;
 
-    // Normaliza ángulo entre 0 y 360
-    const angle = ((baseAngleDeg % 360) + 360) % 360;
+      const angle = ((baseAngleDeg % 360) + 360) % 360;
 
-    // Diferencia circular con respecto a 270 (arriba)
-    const diff = Math.min(
-      Math.abs(angle - 270),
-      360 - Math.abs(angle - 270)
-    );
+      const diff = Math.min(
+        Math.abs(angle - 270),
+        360 - Math.abs(angle - 270)
+      );
 
-    if (diff < minDiff) {
-      minDiff = diff;
-      closestIndex = index;
-    }
-  });
+      if (diff < minDiff) {
+        minDiff = diff;
+        closestIndex = index;
+      }
+    });
 
-  setImagenActivaIndex(closestIndex);
-}, [rotation]);
-
-
+    setImagenActivaIndex(closestIndex);
+  }, [rotation]);
 
   const imagenSuperior = images[imagenActivaIndex];
 
@@ -83,7 +74,6 @@ export const Principal = () => {
     if (!dragging.current) return;
     const deltaX = e.clientX - lastX.current;
     lastX.current = e.clientX;
-    // setRotation((prev) => prev + deltaX * 0.5);
     setRotation((prev) => {
       const newRotation = prev + deltaX * 0.5;
       return ((newRotation % 360) + 360) % 360; // normaliza entre 0-360
@@ -94,7 +84,6 @@ export const Principal = () => {
     <>
     <ContenidoCambiante titulo={imagenSuperior.etiqueta}/>
     <div className="contenedor-principal">
-      {/* Carrusel centrado */}
       <div
         className="carrusel"
         onPointerDown={onPointerDown}
@@ -142,7 +131,6 @@ export const Principal = () => {
         </div>
       </div>
 
-      {/* Imagen tipo footer que rota */}
       <div className="footer-contenedor">
         <div className="llanta-wrapper">
           <img
@@ -158,7 +146,6 @@ export const Principal = () => {
         </div>
       </div>
     </div>
-
     </>
   );
 };

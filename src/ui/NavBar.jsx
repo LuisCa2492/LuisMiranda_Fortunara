@@ -1,26 +1,21 @@
+import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import MenuIcon from '@mui/icons-material/Menu';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
-import { useState } from 'react';
-import { Fragment } from 'react';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import InstagramIcon from '@mui/icons-material/Instagram';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import { Fragment, useState } from 'react';
 import { SiTiktok } from 'react-icons/si';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 
 const pages = ['Tour', 'Galeria de aventuras', 'Acerca de'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export const NavBar = () => {
 
@@ -95,7 +90,7 @@ export const NavBar = () => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: '-apple-system',
+              fontFamily: 'Impact',
               fontSize: { md: '0.9rem', lg: '1.5rem' },
               fontWeight: 1000,
               color: 'red',
@@ -129,7 +124,6 @@ export const NavBar = () => {
                 </Fragment>
             ))}
             </Box>
-          {/* agregar iconos */}
          
           <SiTiktok size={24} color="#ffffff" />
           <WhatsAppIcon sx={{m:1}}/>
@@ -137,7 +131,7 @@ export const NavBar = () => {
 
           <Box sx={{ flexGrow: 0, marginRight: '10vw'}}>
             <Button sx={{backgroundColor:"#a50d0d", color:'white',borderRadius: '20px'}}>
-                Reservar <ArrowCircleRightIcon sx={{ml:1}}/>
+                <Typography sx={{fontFamily:'Impact'}}>Reservar</Typography> <ArrowCircleRightIcon sx={{ml:1}}/>
             </Button>
            
           </Box>

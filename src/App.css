@@ -19,8 +19,8 @@ html, body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;     /* responsive */
-  height: 80vw;    /* mismo que width para mantener círculo */
+  width: 80vw;    
+  height: 80vw;
   max-width: 400px;
   max-height: 400px;
   z-index: 2;
@@ -46,7 +46,7 @@ html, body {
   transition: transform 0.2s, opacity 0.2s;
   max-width: 30vw;
   user-select: none;
-  margin-top: 9vw;
+  margin-top: 7vw;
 
 }
 
@@ -55,7 +55,6 @@ html, body {
   height: 20vw;
   max-width: 100px;
   max-height: 100px;
-  
   object-fit: cover;
   user-select: none;
 }
@@ -78,9 +77,9 @@ html, body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 30vw; /* ajusta según diseño */
-  height: 28vw; /* solo muestra la mitad vertical */
-  overflow: hidden; /* 🔥 esto recorta la mitad inferior */
+  width: 30vw; 
+  height: 28vw; 
+  overflow: hidden;
   z-index: 1;
   pointer-events: none;
   display: flex;
@@ -112,7 +111,7 @@ html, body {
   color: white;
   text-align: center;
   padding: 20px 0;
-  z-index: 5; /* 🔼 más alto que la llanta */
+  z-index: 5;
   font-size: 14px;
 }
 
@@ -126,7 +125,6 @@ html, body {
   background: rgba(235, 223, 223, 0); /* opcional */
 }
 
-/* 🧠 Media query para pantallas pequeñas */
 @media (max-width: 600px) {
   .imagen-circular {
     width: 22vw;
@@ -139,13 +137,13 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    height: 50vh; /* 🔥 Esto asegura mitad de pantalla */
-    overflow: hidden; /* 🔥 Oculta parte inferior de la imagen */
+    height: 50vh; 
+    overflow: hidden; 
     z-index: 1;
     pointer-events: none;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 🔥 Alinea parte superior de la imagen */
+    align-items: flex-start;
   }
 
   .llanta-wrapper {
@@ -158,7 +156,7 @@ html, body {
 
   .llanta-imagen {
     height: auto;
-    width: 100vw;  /* o ajusta según diseño */
+    width: 100vw;
     object-fit: cover;
     user-select: none;
   }
@@ -167,7 +165,6 @@ html, body {
     max-width: 35vw;
     margin-top: 20vw;
     transform: translate(-50%, -50%) scale(1.2) !important; 
-    /* margin-top: 70vw; */
   }
   .carrusel-circulo {
     margin-top: 8vw;
@@ -186,13 +183,13 @@ html, body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    height: 50vh; /* 🔥 Esto asegura mitad de pantalla */
-    overflow: hidden; /* 🔥 Oculta parte inferior de la imagen */
+    height: 50vh; 
+    overflow: hidden;
     z-index: 1;
     pointer-events: none;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* 🔥 Alinea parte superior de la imagen */
+    align-items: flex-start;
   }
 
   .llanta-wrapper {
@@ -205,7 +202,7 @@ html, body {
 
   .llanta-imagen {
     height: auto;
-    width: 100%;  /* o ajusta según diseño */
+    width: 100%;
     object-fit: cover;
     user-select: none;
   }

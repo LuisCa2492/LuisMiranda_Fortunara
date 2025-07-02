@@ -1,4 +1,4 @@
-import React from 'react'
+import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
 export const ContenidoCambiante = ({titulo}) => {
@@ -12,7 +12,7 @@ export const ContenidoCambiante = ({titulo}) => {
             marginTop: {xs:9, sm:12},
             backgroundColor: 'black',
             display: 'flex',
-            flexDirection: 'column', // para apilar el texto principal y secundario
+            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
             color: 'white',
@@ -25,11 +25,11 @@ export const ContenidoCambiante = ({titulo}) => {
             maxWidth: '10vw',
           }}
         >
-      <span>Recorrido dentro de nuestro bosque cambiante. {titulo}</span>
+      <Typography sx={{fontFamily:'Impact',marginRight:3}}>Recorrido dentro de nuestro bosque cambiante. {titulo}</Typography>
       <span style={{ fontSize: '0.7rem', 
           fontWeight: 400, 
           marginTop: 4,
-          fontFamily: '-apple-system',
+          fontFamily: 'Impact',
           fontWeight: 1000,
           color: 'red' }}>
             SUPER QUADS

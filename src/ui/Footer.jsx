@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Box, Typography } from '@mui/material';
 import Button from "@mui/material/Button";
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
@@ -20,7 +18,7 @@ export const Footer = () => {
     >
       <Box
         display="flex"
-        flexDirection={{ xs: 'column', sm: 'row' }} // 👉 column en mobile, row en desktop
+        flexDirection={{ xs: 'column', sm: 'row' }}
         justifyContent="space-between"
         alignItems="center"
         height={{ xs: '20vw', sm: '10vw' }}
@@ -30,7 +28,6 @@ export const Footer = () => {
         <Box flex={1} textAlign="center">
           
         </Box>
-        {/* Columna 2: texto a la izquierda, imagen a la derecha */}
             <Box 
                 flex={2} 
                 display="flex"
@@ -40,9 +37,8 @@ export const Footer = () => {
                 height={{ xs: '20vw', sm: '10vw' }}
                 
             >
-                {/* Texto a la izquierda */}
                 <Box >
-                <Typography variant="body2" fontWeight="bold">
+                <Typography variant="body2" sx={{fontFamily:'Impact'}}>
                     GALERÍA DE AVENTURAS
                 </Typography>
                 <Button 
@@ -52,11 +48,10 @@ export const Footer = () => {
                   borderRadius: '20px',
                   margin:1
                   }}>
-                    Ver Galería <ArrowCircleRightIcon sx={{ml:1}}/>
+                    <Typography sx={{fontFamily:'Impact'}}>Ver Galería</Typography> <ArrowCircleRightIcon sx={{ml:1}}/>
                 </Button>
                 </Box>
 
-                {/* Imagen a la derecha */}
                 <Box>
                 <img
                     src="img/021.jpg"
